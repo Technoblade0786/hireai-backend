@@ -1,5 +1,5 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+# from sklearn.feature_extraction.text import TfidfVectorizer
+# from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
 
@@ -17,14 +17,8 @@ def calculate_match_score(seeker_skills: list, job_skills: list,
     seeker_text = ' '.join(seeker_skills)
     job_text = ' '.join(job_skills)
 
-    try:
-        vectorizer = TfidfVectorizer()
-        tfidf_matrix = vectorizer.fit_transform([seeker_text, job_text])
-        skill_score = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
-    except Exception:
-        # Fallback: simple set intersection
-        common = set(seeker_skills) & set(job_skills)
-        skill_score = len(common) / max(len(job_skills), 1)
+    common = set(seeker_skills) & set(job_skills)
+    skill_score = len(common) / max(len(job_skills), 1)
 
     # Experience bonus (0 to 0.2)
     exp_bonus = 0.0
