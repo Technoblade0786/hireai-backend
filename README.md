@@ -25,17 +25,3 @@ HireAI Backend is a scalable backend system for an AI-powered hiring platform th
 
 
 ## 📂 Project Structure
-
-```bash
-hireai-backend/
-│
-├── users/
-├── jobs/
-├── resumes/
-├── ai_analysis/
-├── core/
-├── media/
-├── static/
-├── requirements.txt
-├── manage.py
-└── README.md
